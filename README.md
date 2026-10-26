@@ -37,3 +37,5 @@ python part3_pg/validate_pong.py
 
 Plots: `python part3_pg/plots.py cartpole|pong|sweep` (see the top of plots.py).
 Checkpoints and training logs are not in the repo (too big).
+
+Figures used in the report are in `results/figures/`, `results/dp/` and the `validation` folders.
