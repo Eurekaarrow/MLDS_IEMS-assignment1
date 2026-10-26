@@ -1,0 +1,31 @@
+[PASS] P1 discounted return matches closed form
+       max err 9.5e-07; G_0=20.0000 (limit 20), G_499=1.0
+[PASS] P2 random policy and untrained net score ~20
+       uniform random: 22.9 ± 11.7; untrained net: 22.3 ± 12.4
+[PASS] P3 lr=0 and gamma=0 do not learn; standard setting does
+       MA(last 100): lr=0 -> 21.7, gamma=0 -> 17.0, gamma=0.95 -> 99.9 (random policy 22.9)
+[PASS] P4 value baseline: same expected gradient, lower variance
+       frozen policy mean length 137; total grad variance: none=1.75e+05, mean=3.31e+04 (x5.3 lower), value=1.65e+04 (x10.6 lower); cos(mean grad none, value)=0.982 vs split-half noise floor cos=0.738
+       t |   x      x_dot   theta   th_dot | P(right) a  r   G_t
+       0 | +0.027 -0.006 +0.0359 +0.020 |  0.626   0  1  20.00
+       1 | +0.027 -0.202 +0.0363 +0.324 |  0.971   1  1  20.00
+       2 | +0.023 -0.007 +0.0427 +0.042 |  0.727   0  1  20.00
+       3 | +0.023 -0.203 +0.0436 +0.348 |  0.977   1  1  20.00
+       4 | +0.019 -0.008 +0.0505 +0.070 |  0.819   1  1  20.00
+       5 | +0.019 +0.186 +0.0519 -0.207 |  0.207   0  1  20.00
+       6 | +0.023 -0.010 +0.0478 +0.102 |  0.873   1  1  20.00
+       7 | +0.022 +0.185 +0.0498 -0.175 |  0.291   0  1  20.00
+       8 | +0.026 -0.011 +0.0463 +0.133 |  0.912   1  1  20.00
+       9 | +0.026 +0.183 +0.0490 -0.145 |  0.394   0  1  20.00
+[PASS] P5 trained policy pushes toward the side the pole falls
+       episode length 500; corr(theta + 0.5*theta_dot, P(right)) = 0.721
+/nfs/home/qme0129/projects/assignment1/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:3862: RuntimeWarning: Mean of empty slice
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/nfs/home/qme0129/projects/assignment1/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[PASS] P6 learned policy is (approximately) mirror symmetric
+       greedy agreement under s -> -s: trained 88.5% overall, 99.1% on decisive states (|P-0.5|>0.2, 75% of states); untrained net: 0.0% overall
+[PASS] P7 truncation at 500 handled: only the tail of an episode is mis-valued
+       greedy episodes reaching 500: 100%; steps whose return is underestimated by >1 due to truncation: 11.6% (last 58 of 500)
+
+7/7 checks passed; plots in /nfs/home/qme0129/projects/assignment1/results/cartpole/validation

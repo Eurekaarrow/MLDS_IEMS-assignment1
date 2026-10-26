@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+logs/
+*.pt
+*.npy
+*.npz
+# only keep figures + validation outputs, not training runs / sweeps
+results/*
+!results/figures/
+!results/dp/
+!results/pong_validation/
+!results/cartpole/
+results/cartpole/*
+!results/cartpole/validation/
+report/

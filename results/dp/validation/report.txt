@@ -1,0 +1,33 @@
+[PASS] T1 enumeration / VI / PI agree
+       |V_enum0-V_PI|=4.94e-09 (bound gamma^T*maxV=2.78e-08), |V_VI-V_PI|=4.94e-09, policies identical=True
+[PASS] T2 Bellman residual ~ 0 and no profitable one-state deviation
+       ||T V - V||_inf = 9.09e-13; min over 201 flipped policies of (V_flip - V*) = 0.000e+00 (>= 0)
+[PASS] T3 Monte-Carlo simulation matches V* (|z| < 4)
+       s0=0: V*=576.7 MC=576.7±0.5 (z=0.06); s0=13: V*=676.7 MC=676.0±0.5 (z=1.30); s0=50: V*=1001.5 MC=1002.0±0.5 (z=0.99); s0=120: V*=2065.0 MC=2065.5±0.8 (z=0.57); s0=200: V*=3821.6 MC=3820.4±1.2 (z=1.04)
+[PASS] T4 V* nondecreasing, pi* is a threshold policy
+       min diff V = 0.000, threshold s* = 13, threshold-shaped = True, mean slope dV/ds on [150,190] = 22.74
+[PASS] T5 cf=0 -> dispatch iff s>=1
+       s*=1
+[PASS] T5 ch=0 -> never dispatch
+       s*=None
+[PASS] T5 cf=1e5 -> never dispatch
+       s*=None
+[PASS] T5 gamma=0, cf=20 -> dispatch iff s > cf/ch = 10
+       s*=11
+[PASS] T5 gamma=0, cf=100 > ch*K=30 -> never dispatch
+       s*=None
+[PASS] T5 K=inf: s*(inf)=17; identical for every K >= s*(inf)+4, and s*(inf) >= s*(K=15)
+       s*(K) = {17: 14, 20: 16, 21: 17, 50: 17, 200: 17}, s*(K=15) = 13
+[PASS] T6 deterministic arrivals: roll-out cost equals V*(0)
+       V*(0)=794.3032, roll-out=794.3032, s*=11
+       first 10 steps: t0: s=0 a=0 c=0, t1: s=5 a=0 c=10, t2: s=10 a=0 c=20, t3: s=15 a=1 c=100, t4: s=5 a=0 c=10, t5: s=10 a=0 c=20, t6: s=15 a=1 c=100, t7: s=5 a=0 c=10, t8: s=10 a=0 c=20, t9: s=15 a=1 c=100
+[PASS] T7 threshold monotone in cf (up), ch (down), K (up)
+       cf 10..400 -> s* 4..15; ch [0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 6.0, 8.0, 10.0] -> [15, 14, 14, 13, 12, 11, 9, 8, 7]; K [5, 10, 15, 20, 25, 30, 35, 40] -> [5, 9, 13, 16, 17, 17, 17, 17]
+[PASS] T8 VI contraction rate ~ gamma, PI converges from any start
+       median ||dV_k+1||/||dV_k|| = 0.9500 (gamma=0.95); VI iters to 1e-10: 598; PI iterations by start: {'never': 6, 'always': 5, 'random': 4}; same pi*: True
+[PASS] T9 finite horizon: stationary threshold early, no dispatch in last period
+       s*(t=0)=13, s*(t=400)=13, s*(t=490..499)=[13, 13, 13, 13, 13, 12, 14, None, None, None]; threshold constant up to t=496
+[PASS] T10 cap at 200 does not affect the policy / low-state values
+       max|V200-V400| on s<100 = 1.14e-13; at s=200: 0.00 (boundary effect only); same policy: True
+
+15/15 checks passed; plots in /nfs/home/qme0129/projects/assignment1/results/dp/validation

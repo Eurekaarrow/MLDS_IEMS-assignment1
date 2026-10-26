@@ -1,0 +1,66 @@
+A.L.E: Arcade Learning Environment (version 0.12.1+8a8fafb)
+[Powered by Stella]
+[PASS] V1 preprocessing identical to reference; RIGHT moves paddle up, LEFT down
+       vectorised==reference: True; paddle row after 15x RIGHT = 1.0, after 15x LEFT = 78.5 (row 0 = top); first diff frame = frame - zeros
+[PASS] V2 discounted returns reset at each point
+       r=[0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 1.0] -> G=[-0.970300018787384, -0.9800999760627747, -0.9900000095367432, -1.0, 0.9800999760627747, 0.9900000095367432, 1.0]
+[PASS] V3 pong_nobase_lr1e-2: evaluation score improves over training
+       ep800: -18.2±0.4, ep4800: 4.4±1.4, ep8800: 6.9±1.0, ep12800: 10.2±1.1, ep16800: 11.6±0.8, ep20800: 9.7±1.1, ep24800: 12.1±0.7, ep29600: 12.8±0.7; corr(ep, score)=0.75
+[FAIL] V4 pong_nobase_lr1e-2 (ep 30000): paddle moves toward the ball
+       P(up | ball above paddle) = 0.449, P(up | ball below paddle) = 0.259, n=3450
+       t0: paddle=34.5 ball=None P(up)=0.000 a=DN r=0
+       t1: paddle=38.5 ball=None P(up)=0.000 a=DN r=0
+       t2: paddle=49.5 ball=None P(up)=0.000 a=DN r=0
+       t3: paddle=60.5 ball=None P(up)=0.980 a=UP r=0
+       t4: paddle=61.5 ball=None P(up)=0.198 a=DN r=0
+       t5: paddle=63.5 ball=None P(up)=1.000 a=UP r=0
+       t6: paddle=62.5 ball=None P(up)=0.865 a=UP r=0
+       t7: paddle=53.5 ball=None P(up)=0.000 a=DN r=0
+       t8: paddle=52.5 ball=None P(up)=0.000 a=DN r=0
+       t9: paddle=61.5 ball=None P(up)=1.000 a=UP r=0
+[PASS] V3 pong_value_lr1e-2: evaluation score improves over training
+       ep800: -14.9±0.5, ep4800: 1.5±1.1, ep8800: 8.9±0.7, ep12800: 11.8±0.7, ep16800: 11.9±0.6, ep20800: 13.2±0.6, ep24800: 13.2±0.6, ep29600: 11.9±0.6; corr(ep, score)=0.77
+[PASS] V4 pong_value_lr1e-2 (ep 30000): paddle moves toward the ball
+       P(up | ball above paddle) = 0.690, P(up | ball below paddle) = 0.460, n=3570
+       t0: paddle=34.5 ball=None P(up)=0.000 a=DN r=0
+       t1: paddle=38.5 ball=None P(up)=0.942 a=UP r=0
+       t2: paddle=43.5 ball=None P(up)=0.806 a=UP r=0
+       t3: paddle=35.5 ball=None P(up)=0.000 a=DN r=0
+       t4: paddle=35.5 ball=None P(up)=0.991 a=UP r=0
+       t5: paddle=33.5 ball=None P(up)=1.000 a=UP r=0
+       t6: paddle=24.5 ball=None P(up)=1.000 a=UP r=0
+       t7: paddle=13.5 ball=None P(up)=1.000 a=UP r=0
+       t8: paddle=3.5 ball=None P(up)=0.000 a=DN r=0
+       t9: paddle=2.5 ball=None P(up)=0.001 a=DN r=0
+[PASS] V3 pong_nobase: evaluation score improves over training
+       ep800: -20.2±0.2, ep4800: -10.8±0.7, ep8800: -0.6±1.1, ep12800: 3.2±0.8, ep16800: 7.7±0.8, ep20800: 9.3±0.9, ep24800: 10.2±0.7, ep29600: 12.3±0.6; corr(ep, score)=0.93
+[PASS] V4 pong_nobase (ep 30000): paddle moves toward the ball
+       P(up | ball above paddle) = 0.528, P(up | ball below paddle) = 0.267, n=3419
+       t0: paddle=34.5 ball=None P(up)=0.000 a=DN r=0
+       t1: paddle=38.5 ball=None P(up)=0.151 a=DN r=0
+       t2: paddle=49.5 ball=None P(up)=0.026 a=DN r=0
+       t3: paddle=60.5 ball=None P(up)=1.000 a=UP r=0
+       t4: paddle=61.5 ball=None P(up)=0.405 a=DN r=0
+       t5: paddle=63.5 ball=None P(up)=0.990 a=UP r=0
+       t6: paddle=62.5 ball=None P(up)=0.365 a=DN r=0
+       t7: paddle=63.5 ball=None P(up)=0.967 a=UP r=0
+       t8: paddle=62.5 ball=None P(up)=0.365 a=UP r=0
+       t9: paddle=53.5 ball=None P(up)=0.089 a=DN r=0
+[PASS] V3 pong_value: evaluation score improves over training
+       ep800: -19.2±0.2, ep4800: 0.7±0.9, ep8800: 6.8±0.8, ep12800: 9.0±0.8, ep16800: 11.5±0.8, ep20800: 10.6±0.6, ep24800: 13.8±0.5, ep29600: 13.5±0.6; corr(ep, score)=0.82
+[PASS] V4 pong_value (ep 30000): paddle moves toward the ball
+       P(up | ball above paddle) = 0.546, P(up | ball below paddle) = 0.298, n=3616
+       t0: paddle=34.5 ball=None P(up)=0.000 a=DN r=0
+       t1: paddle=38.5 ball=None P(up)=0.888 a=UP r=0
+       t2: paddle=43.5 ball=None P(up)=0.432 a=UP r=0
+       t3: paddle=35.5 ball=None P(up)=0.336 a=DN r=0
+       t4: paddle=35.5 ball=None P(up)=0.702 a=UP r=0
+       t5: paddle=33.5 ball=None P(up)=0.271 a=DN r=0
+       t6: paddle=34.5 ball=None P(up)=0.481 a=UP r=0
+       t7: paddle=33.5 ball=None P(up)=0.709 a=DN r=0
+       t8: paddle=34.5 ball=None P(up)=0.481 a=DN r=0
+       t9: paddle=43.5 ball=None P(up)=0.666 a=UP r=0
+[PASS] V5 Pong gradient variance with V(s) baseline lower (policy ep 30000)
+       total variance none=1.36e+04, value=5.81e+03 (x2.34 lower); cos(mean grads)=0.556 over 48 episodes
+
+10/11 checks passed; plots in /nfs/home/qme0129/projects/assignment1/results/pong_validation
