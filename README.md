@@ -1,4 +1,4 @@
-# MLDS Assignment 1
+# MLDS_IEMS Assignment 1
 
 Code for the shuttle dispatch DP problem and REINFORCE on CartPole / Pong.
 
